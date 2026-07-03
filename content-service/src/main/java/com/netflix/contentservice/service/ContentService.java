@@ -1,11 +1,11 @@
-package com.netflix.contentservice.services;
+package com.netflix.contentservice.service;
 
 import com.netflix.contentservice.dto.MovieRequest;
 import com.netflix.contentservice.dto.MovieResponse;
 import com.netflix.contentservice.model.Genre;
 import com.netflix.contentservice.model.Movie;
 import com.netflix.contentservice.model.VideoStatus;
-import com.netflix.contentservice.repositories.MovieRepository;
+import com.netflix.contentservice.repository.MovieRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;

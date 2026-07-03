@@ -18,7 +18,7 @@ public class VideoController {
     private final VideoService videoService;
 
     /**
-     * Upload video file for moview
+     * Upload video file for movies
      * Accepts multipart file upload
      *
      * POST /api/v1/videos/upload/{movieId}

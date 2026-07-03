@@ -3,7 +3,7 @@ package com.netflix.contentservice.controller;
 import com.netflix.contentservice.dto.MovieRequest;
 import com.netflix.contentservice.dto.MovieResponse;
 import com.netflix.contentservice.model.Genre;
-import com.netflix.contentservice.services.ContentService;
+import com.netflix.contentservice.service.ContentService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

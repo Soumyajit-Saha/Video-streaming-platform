@@ -1,3 +1,48 @@
 spring:
   application:
     name: encoding-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: encoding-service-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDesrializer
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring:
+          json:
+            trusted:
+              packages: "*"
+            use:
+              type:
+                headers: false
+            value:
+              default:
+                type: com.netflix.encodingservice.event.VideoUploadEvent
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+server:
+  port: 8083
+
+#AWS Configuration
+aws:
+  access-key: ${AWS_ACCESS_KEY:your-access-key}
+  secret-key: ${AWS_ACCESS_KEY:your-secret-key}
+  region: ${AWS_REGION:us-east-1}
+  s3:
+    bucket-name: ${AWS_BUCKET_NAME:abcdbucket}
+
+#FFMpeg Configuration
+ffmpeg:
+  path: ${FFMPEG_PATH:ffmpeg}
+
+#Temp directory for encoding
+encoding:
+  base-path: ${TEMP_DIR:/tmp/encoding}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info

@@ -5,7 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 
-// Casumed from Kafka topic: video.uploaded
+// Consumed from Kafka topic: video.uploaded
 @Data
 @NoArgsConstructor
 @AllArgsConstructor

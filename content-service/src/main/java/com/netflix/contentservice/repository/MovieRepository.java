@@ -1,4 +1,4 @@
-package com.netflix.contentservice.repositories;
+package com.netflix.contentservice.repository;
 
 import com.netflix.contentservice.model.Genre;
 import com.netflix.contentservice.model.Movie;
