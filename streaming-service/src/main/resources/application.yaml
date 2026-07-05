@@ -1,3 +1,42 @@
 spring:
   application:
     name: streaming-service
+  data:
+    redis:
+      host: localhost
+      port: 6379
+  kafka:
+    bootstrap-servers: localhost:9092
+    group-id: streaming-service-group
+    auto-offset-reset: earliest
+    key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+    value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+    properties:
+      spring:
+        json:
+          trusted:
+            package: "*"
+          use:
+            type:
+              headers: false
+          value:
+            default:
+              type: com.netflix.streamingservice.event.VideoEncodedEvent
+server:
+  port: 8084
+
+#AWS configuration
+aws:
+  access-key: ${AWS_ACCESS_KEY:your-access-key}
+  secret-key: ${AWS_ACCESS_KEY:your-secret-key}
+  region: ${AWS_REGION:us-east-1}
+  s3:
+    bucket-name: ${AWS_BUCKET_NAME:abcdbucket}
+    # Presigned URL expiry in minutes
+    presigned-url-expiry: 60
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info
