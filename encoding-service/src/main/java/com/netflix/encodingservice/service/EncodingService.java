@@ -181,6 +181,7 @@ public class EncodingService {
 
         ProcessBuilder processBuilder = new ProcessBuilder(command);
         processBuilder.redirectErrorStream(true);
+        processBuilder.inheritIO();
         Process process = processBuilder.start();
         int exitCode = process.waitFor();
         if(exitCode != 0){
