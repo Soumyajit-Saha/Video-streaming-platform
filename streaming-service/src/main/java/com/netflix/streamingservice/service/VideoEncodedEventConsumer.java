@@ -24,7 +24,7 @@ public class VideoEncodedEventConsumer {
             topics = "video.encoded",
             groupId = "streaming-service-group"
     )
-    public void consumeVIdeoEncodedEvent(VideoEncodedEvent event) {
+    public void consumeVideoEncodedEvent(VideoEncodedEvent event) {
         log.info("Consumed VideoEncodedEvent for movie: {} success: {}",
                 event.getMovieId(), event.isSuccess());
 
